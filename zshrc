@@ -76,6 +76,9 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# GitHub personal access token
+export GITHUB_TOKEN="<72c9a415c320c5425d7bd76e1f7479c893f9ec8b>"
+
 # If you need to have openjdk first in your PATH run:
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
