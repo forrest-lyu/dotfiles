@@ -43,25 +43,47 @@ call plug#end()
 set noswapfile			" Don't use swapfiles for the buffer.
 set nobackup			" Don't backup before overwriting a file.
 set nocompatible		" Make Vim behave in a more useful way.
+
 filetype off			" Reset filetype detection first ...
 filetype plugin indent on	" ... and enable filetype detection.
+
+set encoding=utf-8		" Set default encoding to UTF-8.
 set ttyfast			" Indicate fast terminal conn. for faster
 				" redraw.
+set textwidth=80		" Maximum width of text.
+set linebreak			" Don't wrap long lines at a character.
 set laststatus=0		" Never show status line.
-set encoding=utf-8		" Set default encoding to UTF-8.
 set autoread
 set autowrite
-
-
-
-set textwidth=80
-
+set autoindent
+set backspace=indent,eol,start
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set noerrorbells
+set nonumber
+set showcmd
+set ruler
+set splitright
+set splitbelow
+set hidden
+set fileformats=unix,dos,mac
+set noshowmatch
+set showmode
+set completeopt=menu,menuone
+set pumheight=10
+set nocursorcolumn
+set nocursorline
+set lazyredraw
 
 set background=dark
 colorscheme gruvbox
 
+" To define a mapping key comma ','.
 let mapleader = ","
 
+" To quickly save & quit files.
 nnoremap <leader>w :w<Cr>
 nnoremap <leader>q :wq<Cr>
 inoremap <leader>w <Esc>:w<Cr>
@@ -69,8 +91,6 @@ inoremap <leader>q <Esc>:wq<Cr>
 
 " Map a specific key or shortcupt to invoke nerdtree plugin.
 nnoremap <leader>t :NERDTreeToggle<Cr>
-
-" AndrewRadev/splitjoin.vim
 
 " Setup vim-github-dashboard variable
 let g:github_dashboard = { 'username': 'forrest-lyu', 'password': $GITHUB_TOKEN }
