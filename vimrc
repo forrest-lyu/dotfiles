@@ -54,7 +54,7 @@ filetype plugin indent on
 set encoding=utf-8		" Set default encoding to UTF-8.
 set ttyfast			    " Indicate fast terminal conn. for faster
 				        " redraw.
-set textwidth=80		" Maximum width of text.
+set textwidth=0		    " No limit the width of the line.
 set nolinebreak			" Wrap long lines at a character.
 set laststatus=0		" Never show status line.
 set autoread			" Auto read files that have been changed outside
