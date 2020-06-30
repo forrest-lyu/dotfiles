@@ -1,138 +1,33 @@
-" A sensible vimrc for the full-stack dev., especially for JavaEE + Node.js.
-"
-" Please note that the following settings are some default that I used for
-" years. However it might be not the case for you (and your environment). I
-" highly encourage to change/adapt the vimrc to your own needs. Think of a
-" vimrc as a garden that needs to be maintained and fostered throughout years.
-"
-" 'Keep it clean and useful. - Fatih Arslan' 
-" 'Get things done. - Linus Torvalds' 
-" 'Learn it detailed and apply what you have learned. - Forrest Lyu'
+" A sophisticated vim config file for the full-stack dev.
 
-" vim-plug: minimalist vim plug manager Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
+" Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
-" The fancy start screen for Vim.
-Plug 'mhinz/vim-startify'
-
-" Retro groove color scheme for Vim.
+" Colorscheme
 Plug 'morhetz/gruvbox'
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
+" Initialized plugin system
+call plug#end()
 
-" A class outline viewer
-Plug 'majutsushi/tagbar'
+set nocompatible
+set nobackup
+set noswapfile
+set textwidth=0
+set nolinebreak
 
-" A tree explorer for Vim.
-" - browse complex directory hierarchies.
-" - quickly open files.
-" - perform basic file system operations.
-Plug 'scrooloose/nerdtree'
-
-" Browser GitHub events (user dashboard, user/repo activity) in Vim.
-Plug 'junegunn/vim-github-dashboard'
-
-" Initialize plugin system
-call plug#end() 
-
-"""""""""""""""""""""""""
-" 	    Config		    "	
-"""""""""""""""""""""""""
-set nocompatible		" Make Vim behave in a more useful way.
-set noswapfile			" Don't use swapfiles for the buffer.  
-set nobackup            " Don't backup before overwriting a file.
-
-filetype off			" Reset filetype detection first ...  
-filetype plugin indent on	
-                        " ... and enable filetype detection.
-
-set encoding=utf-8		" Set default encoding to UTF-8.  
-set backspace=indent,eol,start	
-                        " Make the key 'backspace' more powerful.
-
-set textwidth=0		    " No limit the width of the line.  
-set nolinebreak         " Wrap long lines at a character.  
-set laststatus=0		" Never show status line.  
-set nonumber            " Don't show line number.  
-set showcmd			    " Show what I'm typing.
-set ruler			    " Show the line and column number of the cursor position.  
-set splitright			" New window will be put in right of the current one.  
-set splitbelow			" New window will be put in the below of the current one.  
-set noshowmatch			" When a bracket is inserted, don't jump to the matching one.  
-set showmode			" Show mode in the below.  
-set completeopt=menu,menuone	
-                        " Use the popop menu even in one match.
-set pumheight=10		" popup menu height.  
-set nocursorcolumn		" Make screen redrawing faster.  
-set nocursorline 
-
-set autoread			" Auto read files that have been changed outside of Vim.
-set autowrite			" Auto write the contents of the file before
-                        " execute :next, :last, :make, etc.
-set autoindent		    " Copy indent from current line when starting a
-                        " new line.
-
-
-set incsearch			" While typing a search command, show where the
-                        " pattern, as it was typed so far.
-set hlsearch			" Highlight the search pattern.  
-set ignorecase          " Ignore case in search patterns.  
-set smartcase			" Override the 'ignorecase' option if the search
-                        " patern cantains upper case characters.
-
-set ttyfast             " Indicate fast terminal conn. for faster redraw.
-set noerrorbells		" Don't ring the bell for error messages.  
-set hidden			    " A buffer becomes hidden when it is abandoned.  
-set fileformats=unix,dos,mac	
-                        " Prefer 'CR' tailing delimiter (DOS, 'CR LF')
-set lazyredraw			" Wait to redraw.
-
-set background=dark 
+set background=dark
 colorscheme gruvbox
 
-" Redefine tab key as (up to) 4 spaces for indenting files.
-set tabstop=4			" Set the maximum width of an tab.  
+" Redefine a tab equals a indent as (up to ) 4 spaces.
+set tabstop=4
 set softtabstop=0
-set expandtab			" Make tab key insert space instade of tab.  
-set shiftwidth=4		" Set an indent correspond to a single tab.  
-set smarttab            " Make the tab key insert spaces to go to the
-                        " next indent of the next tabstop.
+set expandtab
+set shiftwidth=4
+set smarttab
 
-"""""""""""""""""""""""""
-" 	    Mapping		    "
-"""""""""""""""""""""""""
-" To define a mapping key comma ','.
-let mapleader = ","
+let mapleader=","
 
-" To quickly save & quit files.
-nnoremap <leader>w :w<Cr> 
-nnoremap <leader>q :wq<Cr> 
-inoremap <leader>w <Esc>:w<Cr> 
+nnoremap <leader>w :w<Cr>
+nnoremap <leader>q :wq<Cr>
+inoremap <leader>w <Esc>:w<Cr>
 inoremap <leader>q <Esc>:wq<Cr>
-
-"""""""""""""""""""""""""
-" Plugins management	"
-"""""""""""""""""""""""""
-" Map a specific key or shortcupt to invoke nerdtree plugin.
-nnoremap <leader>t :NERDTreeToggle<Cr>
-
-" Setup vim-github-dashboard variable
-let g:github_dashboard = { 'username': 'forrest-lyu', 'password': $GITHUB_TOKEN }
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap vea <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap vea <Plug>(EasyAlign)
-
-" Toggle the tagbar window
-nnoremap <leader>o :TagbarToggle<Cr>
-
-"""""""""""""""""""""""""
-" 	    Scripts	        "
-"""""""""""""""""""""""""
